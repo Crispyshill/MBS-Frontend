@@ -19,7 +19,7 @@ const Login: React.FC = () => {
       const { token } = await loginApi({ email, password }); // Call the API
       console.log("Token in the login file: " + token)
       dispatch(login(token)); // Dispatch Redux login action
-      navigate("/dashboard"); // Redirect on successful login
+      navigate("/"); // Redirect on successful login
     } catch (err: any) {
       console.log("Error in handleSubmit  :" + err)
       setError(err.message || "Something went wrong. Please try again.");
