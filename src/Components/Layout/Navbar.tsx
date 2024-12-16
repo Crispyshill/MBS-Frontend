@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/activities">Activities</Link></li>
         <li><Link to="/leaderboard">Leaderboard</Link></li>
+        <li><Link to="challenges">Challenges</Link></li>
         {isAuthenticated && (
           <li>
             <Link to={`/profile/${currentUserId}`}>My Profile</Link>

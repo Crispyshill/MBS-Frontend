@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginApi } from "../Utils/Api";
+import { loginApi } from "../Utils/LoginApi";
 import { login } from "../store/authSlice";
 
 const Login: React.FC = () => {

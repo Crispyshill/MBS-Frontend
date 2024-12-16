@@ -8,6 +8,7 @@ import LeaderboardPage from './Pages/Leaderboard';
 import Profile from './Pages/Profile';
 import Login from './Pages/Login';
 import ProtectedRoute from './Components/ProtectedRoute';
+import Challenges from './Pages/Challenges';
 
 const App: React.FC = () => (
   <Router>
@@ -20,6 +21,7 @@ const App: React.FC = () => (
         {/* Protected Routes */}
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute> } />
         <Route path="/activities" element={<ProtectedRoute><Activities /></ProtectedRoute>} />
+        <Route path="/challenges" element={<ProtectedRoute><Challenges /></ProtectedRoute>} />
         <Route path="/leaderboard" element={<ProtectedRoute><LeaderboardPage /></ProtectedRoute>} />
         <Route path="/profile/:userId" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       </Routes>
