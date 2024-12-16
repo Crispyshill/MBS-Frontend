@@ -6,16 +6,22 @@ import Home from './Pages/Home';
 import Activities from './Pages/Activities';
 import LeaderboardPage from './Pages/Leaderboard';
 import Profile from './Pages/Profile';
+import Login from './Pages/Login';
+import ProtectedRoute from './Components/ProtectedRoute';
 
 const App: React.FC = () => (
   <Router>
     <Navbar />
     <div style={{ padding: '20px' }}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
-        <Route path="/profile/:userId" element={<Profile />} />
+        {/* Public Routes */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Routes */}
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute> } />
+        <Route path="/activities" element={<ProtectedRoute><Activities /></ProtectedRoute>} />
+        <Route path="/leaderboard" element={<ProtectedRoute><LeaderboardPage /></ProtectedRoute>} />
+        <Route path="/profile/:userId" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
       </Routes>
     </div>
     <Footer />
