@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 const Navbar: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated, token } = useSelector((state: RootState) => state.auth);
-  const currentUserId = "123"; // Replace with actual user ID logic if available
+  const { isAuthenticated, token, externalId } = useSelector((state: RootState) => state.auth);
+  const currentUserId = externalId; // Replace with actual user ID logic if available
 
   const handleLogout = () => {
     dispatch(logout());
@@ -23,8 +23,6 @@ const Navbar: React.FC = () => {
       <h1>MindBodySpirit</h1>
       <ul style={styles.links}>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/activities">Activities</Link></li>
-        <li><Link to="/leaderboard">Leaderboard</Link></li>
         <li><Link to="challenges">Challenges</Link></li>
         {isAuthenticated && (
           <li>

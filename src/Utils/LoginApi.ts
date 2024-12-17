@@ -19,6 +19,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   token: string;
+  externalId: string;
 }
 
 export async function loginApi(data: LoginRequest): Promise<LoginResponse> {
@@ -46,5 +47,6 @@ export async function loginApi(data: LoginRequest): Promise<LoginResponse> {
     const error = await response.json();
     throw new Error(error.message || "Login failed");
   }
+  
   return response.json();
 }

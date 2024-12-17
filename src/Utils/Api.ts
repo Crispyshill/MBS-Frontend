@@ -49,7 +49,7 @@ export const fetchActivitiesByUser = async (userId: string): Promise<Activity[]>
  */
 export const fetchUsers = async (): Promise<User[]> => {
   const users = [
-    { id: '123', name: 'Alice', totalPoints: 130 },
+    { id: '017f885c-9042-42a4-80e9-7d6b5869455b', name: 'Alice', totalPoints: 130 },
     { id: '124', name: 'Bob', totalPoints: 90 },
     { id: '125', name: 'Charlie', totalPoints: 70 },
   ];
@@ -61,6 +61,7 @@ export const fetchUsers = async (): Promise<User[]> => {
  * Fetch a user by their ID.
  */
 export const fetchUserById = async (userId: string): Promise<User | null> => {
+  console.log("fetching users by id")
   const users = await fetchUsers();
   return users.find((user) => user.id === userId) || null;
 };

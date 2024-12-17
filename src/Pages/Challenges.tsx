@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ChallengeList from "../Components/Challenges/ChallengeList";
 import { fetchChallenges } from "../Utils/ChallengesApi";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 interface Challenge {
   id: string;
@@ -13,6 +15,8 @@ const Challenges: React.FC = () => {
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const {externalId } = useSelector((state: RootState) => state.auth);
+
 
   // Fetch challenges from the backend
   useEffect(() => {

@@ -16,9 +16,10 @@ const Login: React.FC = () => {
     console.log("Handling login button submission")
 
     try {
-      const { token } = await loginApi({ email, password }); // Call the API
+      const { token, externalId } = await loginApi({ email, password }); // Call the API
+      console.log("external Id returned: " + externalId)
       console.log("Token in the login file: " + token)
-      dispatch(login(token)); // Dispatch Redux login action
+      dispatch(login({token, externalId})); // Dispatch Redux login action
       navigate("/"); // Redirect on successful login
     } catch (err: any) {
       console.log("Error in handleSubmit  :" + err)
